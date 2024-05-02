@@ -87,5 +87,18 @@ public class Nanojana_pica {
         saglabatPasutijumuFaila(vards, adrese, telefonaNumurs, pica.toString(), kopsumma);
     }
 
-    
+    private static void saglabatPasutijumuFaila(String vards, String adrese, String telefonaNumurs, String picaInfo, double kopsumma) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("pasutijums.txt", true))) {
+            writer.println("Klienta informācija:");
+            writer.println("Vārds: " + vards);
+            writer.println("Adrese: " + adrese);
+            writer.println("Telefona numurs: " + telefonaNumurs);
+            writer.println("Pasūtījums:");
+            writer.println(picaInfo);
+            writer.println("Kopējā cena: $" + String.format("%.2f", kopsumma));
+            writer.println("-------------------------------------");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Kļūda, nevarēja saglabāt pasūtījumu failā.", "Kļūda", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
