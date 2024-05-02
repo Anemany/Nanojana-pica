@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+
 class Pica {
     private String izmers;
     private String toppings;
@@ -39,18 +40,20 @@ class Pica {
 
     @Override
     public String toString() {
-        String piegadesVeids = piegade ? "Piegāde" : "Ja";
+        String piegadesVeids = piegade ? "Piegāde" : "Aptieka";
         return "Picas izmērs: " + izmers +
                 "\nToppings: " + toppings +
                 "\nMērce: " + merce +
                 "\nPiegāde: " + piegadesVeids;
     }
 }
-public class Pica {
+
+public class Nanojana_pica {
     public static void main(String[] args) {
-        String name = JOptionPane.showInputDialog(null, "Ievadiet savu vārdu:");
-        String address = JOptionPane.showInputDialog(null, "Ievadiet savu adresi:");
-        String phoneNumber = JOptionPane.showInputDialog(null, "Ievadiet savu telefona numuru:");
+        String vards = JOptionPane.showInputDialog(null, "Ievadiet savu vārdu:");
+        String adrese = JOptionPane.showInputDialog(null, "Ievadiet savu adresi:");
+        String telefonaNumurs = JOptionPane.showInputDialog(null, "Ievadiet savu telefona numuru:");
+
         String[] izmēri = {"Mazā", "Vidējā", "Liela"};
         String izmers = (String) JOptionPane.showInputDialog(null, "Izvēlieties pīcas izmēru:",
                 "Pīcas izmērs", JOptionPane.PLAIN_MESSAGE, null, izmēri, izmēri[0]);
@@ -61,12 +64,28 @@ public class Pica {
 
         String[] mērces = {"Marināde", "Barbecue", "Ķiploku"};
         String merce = (String) JOptionPane.showInputDialog(null, "Izvēlieties pīcas mērci:",
-        "Pīcas mērce", JOptionPane.PLAIN_MESSAGE, null, mērces, mērces[0]);
+                "Pīcas mērce", JOptionPane.PLAIN_MESSAGE, null, mērces, mērces[0]);
+
         int piegadesIzvele = JOptionPane.showConfirmDialog(null,
                 "Vai vēlaties piegādi?", "Piegāde",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         boolean piegade = piegadesIzvele == JOptionPane.YES_OPTION;
 
-       
+        Pica pica = new Pica(izmers, topping, merce, piegade);
+
+        double kopsumma = pica.aprekinatCenu();
+
+        JOptionPane.showMessageDialog(null,
+                "Klienta informācija:\n" +
+                        "Vārds: " + vards + "\n" +
+                        "Adrese: " + adrese + "\n" +
+                        "Telefona numurs: " + telefonaNumurs + "\n\n" +
+                        pica.toString() + "\n\n" +
+                        "Kopējā cena: $" + String.format("%.2f", kopsumma),
+                "Pīcas pasūtījums", JOptionPane.INFORMATION_MESSAGE);
+
+        saglabatPasutijumuFaila(vards, adrese, telefonaNumurs, pica.toString(), kopsumma);
     }
+
+    
 }
