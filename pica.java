@@ -18,11 +18,6 @@ public class Pica {
 
         String[] mērces = {"Marināde", "Barbecue", "Ķiploku"};
         String merce = (String) JOptionPane.showInputDialog(null, "Izvēlieties pīcas mērci:",
-                "Pīcas mērce", JOptionPane.PLAIN_MESSAGE, null, mērces, mērces[0]);
-
-        int piegadesIzvele = JOptionPane.showConfirmDialog(null,
-                "Vai vēlaties piegādi?", "Piegāde",
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        boolean piegade = piegadesIzvele == JOptionPane.YES_OPTION;
+        "Pīcas mērce", JOptionPane.PLAIN_MESSAGE, null, mērces, mērces[0]);
     }
 }
