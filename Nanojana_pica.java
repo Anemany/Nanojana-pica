@@ -88,7 +88,7 @@ public class Nanojana_pica {
     }
 
     private static void saglabatPasutijumuFaila(String vards, String adrese, String telefonaNumurs, String picaInfo, double kopsumma) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter("pasutijums.txt", true))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter("order.txt", true))) {
             writer.println("Klienta informācija:");
             writer.println("Vārds: " + vards);
             writer.println("Adrese: " + adrese);

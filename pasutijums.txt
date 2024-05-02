@@ -1,0 +1,11 @@
+Klienta informācija:
+Vārds: sdfgh
+Adrese: dfghj
+Telefona numurs: 345678
+Pasūtījums:
+Picas izmērs: Mazā
+Toppings: Siers
+Mērce: Marināde
+Piegāde: Piegāde
+Kopējā cena: $8.99
+-------------------------------------
